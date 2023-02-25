@@ -1,0 +1,78 @@
+<table style="width: 100%; height: 10%;background-color: rgb(233, 228, 244);">
+  <tr>
+    <td style="width:30%"><img src="assets/images/header4.jpg" style="width:60%;"></td>
+      <td style="width:45%;"><h2 style="text-align: left;text-transform: uppercase;">Hotel Booking Application</h2></td>
+      
+    <td style="width: 35%;background-color: rgb(233, 228, 244);text-align: center; ">
+      <div *ngIf="loginStatus == false">
+        <table style="width: 100%; height: 100%;margin-right: 10%;">
+          <tr><input type="text" placeholder="username" #username /></tr>
+          <tr><input type="password" placeholder="password" #password /> </tr>
+          <tr>
+             <button (click)="verifyUser(username.value,password.value)" required> Login</button>    
+             <button >Register</button>
+          </tr>
+        </table>
+      </div>
+
+      <div *ngIf="loginStatus == true">
+          
+            <tr>
+              <td> <img src="assets/images/{{photo}}" width="65px" height="65px"> </td>
+              <td > 
+                   Welcome <b> {{loginUsername}} </b> as <i> {{userRole}} </i> 
+                   <br/>
+                   <a href="#"> profile </a>
+                   <a href="#" (click)="doLogout()" style="margin-left: 20px;"> logout </a>
+                   
+              </td>
+            </tr>
+          
+         
+    
+      </div>
+
+    
+  </tr>
+</table>
+<!-- <hr class="line"/> -->
+
+<table style="width: 100%; height: 50%;margin-top: 2px;" *ngIf="loginStatus == true">
+  <tr style="background-color:rgb(212, 245, 164);">
+    
+    
+    <td class="link"> <a  *ngIf="userRole == 'admin'" routerLink="/launchhotel">Add Hotel</a> </td>
+    <td class="link"> <a  *ngIf="userRole == 'admin'" routerLink="/hotels">All Hotels</a> </td>
+    <td class="link"> <a  *ngIf="userRole == 'admin'" routerLink="/bookingdetails">Booking Details</a> </td>
+    <td class="link"> <a  *ngIf="userRole == 'admin'" routerLink="/transactions">Transactions</a> </td>
+    
+    
+
+    <!--<td class="link"> <a   routerLink="/admin"  *ngIf="(userRole == 'admin')"> Admin </a>   </td>-->
+  </tr>
+  <router-outlet></router-outlet>
+</table>
+
+<!-- <hr class="line2" *ngIf="loginStatus == true"/> -->
+<table style="width: 100%; height: 50%;margin-top: 1px;" *ngIf="loginStatus == true">
+  <tr style="background-color:rgb(212, 245, 164);">
+    <td class="link"> <a  *ngIf="userRole == 'User'" routerLink="/search">Search Hotel</a> </td>
+    <td class="link"> <a  *ngIf="userRole == 'User'" routerLink="/mybookings">My Bookings</a> </td>
+    <td class="link"> <a  *ngIf="userRole == 'User'" routerLink="/mypayment">My Payments</a> </td>
+    <td class="link"> <a  *ngIf="userRole == 'User'" routerLink="/review">FeedBack</a> </td>
+</tr>
+<router-outlet></router-outlet>
+</table>
+<div *ngIf="loginStatus == false">
+  <table>
+
+
+    <tr>
+      <td style="width:70%"><img src="assets/images/hotel2.jpg" alt="Home Image" style="width: 50%; height:40%"></td>
+      <td style="width:30% ;text-align: left;"><h2>With the Hotel room bookings app, you can book and manage your stay on the go.</h2> </td><br/>
+      
+
+    </tr>
+</table>
+  <router-outlet></router-outlet>
+</div>
