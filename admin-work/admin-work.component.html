@@ -1,0 +1,146 @@
+<div style="width:100;height:60%;background-color: rgb(149, 138, 149);">
+    <form (ngSubmit)="submitForm()" #hotelForm="ngForm" >
+        <table>
+            <tr class="form-group">
+                <td>
+                    <label>Enter City</label>
+                </td>
+                <td>
+                <input type="text" #city="ngModel"  pattern="[a-zA-Z]+" [(ngModel)]="h.city" class="form-control" id="city" name="city" placeholder="Enter city"required>
+
+                </td>
+                <div *ngIf="city.invalid">
+                    <span style="color: red;" *ngIf="city.errors?.['required']">
+                       
+                        City is required Field 
+                   </span> 
+                   <span style="color: red;" *ngIf="city.errors?.['pattern']">
+                        City is not valid
+                   </span>
+                </div>
+            </tr>
+            <tr class="form-group">
+                    <td><label>
+                        Enter Hotel Name</label>
+                    </td>
+                    <td>
+                    <input type="text" #hotelName="ngModel"  pattern="[a-zA-Z]+" [(ngModel)]="h.hotelName" class="form-control" id="hname" name="hname" placeholder="Enter Hotel Name"required>
+
+                    </td>
+                    <div *ngIf="hotelName.invalid">
+                        <span style="color: red;" *ngIf="hotelName.errors?.['required']">
+                           
+                            Hotel Name is required Field 
+                       </span> 
+                       <span style="color: red;" *ngIf="hotelName.errors?.['pattern']">
+                        Hotel Name is not valid
+                       </span>
+                    </div>
+            </tr>
+            <tr class="form-group">
+
+                <th>Address</th>
+                
+                <td><textarea [(ngModel)]="h.address" class="form-control" id="address" name="address"></textarea></td>
+            
+            </tr>
+            <tr class="form-group">
+
+                <th>Hotel Description</th>
+                    
+                <td><textarea [(ngModel)]="h.description" class="form-control" id="description" name="description"></textarea></td>
+                
+            </tr>
+
+            <tr class="form-group">
+                <td><label>Average Rate Per Day</label></td>
+                
+                <td><input type="text" #avgRatePerDay="ngModel" [(ngModel)]="h.avgRatePerDay" class="form-control" id="avgRatePerDay" name="avgRatePerDay" placeholder="In INR Rs" required pattern="[0-9]{3,4}"></td>
+                <div *ngIf="avgRatePerDay.invalid">
+                    <span style="color: red;" *ngIf="avgRatePerDay.errors?.['required']">
+                       
+                        AvgRatePerDay is required Field 
+                   </span> 
+                   <span style="color: red;" *ngIf="avgRatePerDay.errors?.['pattern']">
+                    AvgRatePerDay is not valid
+                   </span>
+                </div>
+            </tr>
+            <tr class="form-group">
+                <td><label>Email</label></td>
+                
+                <td><input type="email" #email="ngModel" [(ngModel)]="h.email" class="form-control" id="email" name="email" placeholder="enter email" required ></td>
+                <div *ngIf="email.invalid">
+                    <span style="color: red;" *ngIf="email.errors?.['required']">
+                       
+                        Email is required Field 
+                   </span> 
+                   <span style="color: red;" *ngIf="email.errors?.['pattern']">
+                        Email should include .com 
+                   </span>
+                 </div>
+            </tr>
+            <tr class="form-group">
+                <td><label>Phone Number</label></td>
+                
+                <td><input type="text" #phone="ngModel" [(ngModel)]="h.phone" class="form-control" id="phone" name="phone" placeholder="enter phone number" required pattern="[0-9]{10}"></td>
+                <div *ngIf="phone.invalid">
+                    <span style="color: red;" *ngIf="phone.errors?.['required']">
+                       
+                        Phone Number is required Field 
+                   </span> 
+                   <span style="color: red;" *ngIf="phone.errors?.['pattern']">
+                    Phone Number is not valid
+                   </span>
+                 </div>
+            </tr>
+            <tr class="form-group">
+                <td><label>Star Rating</label></td>
+                
+                <td><input type="number" #starRating="ngModel" [(ngModel)]="h.starRating" class="form-control" id="starRating" name="starRating" placeholder="rating" required pattern="[0-9]"></td>
+                <div *ngIf="starRating.invalid">
+                    <span style="color: red;" *ngIf="starRating.errors?.['required']">
+                       
+                        Star Rating is required Field 
+                   </span> 
+                   <span style="color: red;" *ngIf="starRating.errors?.['pattern']">
+                     Star Rating is not valid
+                   </span>
+                 </div>
+            </tr>
+            <tr class="form-group">
+                <td><label>Website</label></td>
+                
+                <td><input type="text" #website="ngModel" [(ngModel)]="h.website" class="form-control" id="website" name="website" placeholder="enter website Url" required ></td>
+                <div *ngIf="website.invalid">
+                    <span style="color: red;" *ngIf="website.errors?.['required']">
+                       
+                        Website is required Field 
+                   </span> 
+                   <span style="color: red;" *ngIf="website.errors?.['pattern']">
+                        Website  should include .com 
+                   </span>
+                </div>
+            </tr>
+            <tr class="form-group">
+                <th>Image</th>
+                
+                <td><input type="text" [(ngModel)]="h.imageName" #imageName="ngModel" class="form-control" id="himage" name="imageName"placeholder="with extention exp *.jpg" required pattern="[a-zA-Z0-9]+[.jpg]{4}"></td>
+                <div *ngIf="imageName.invalid">
+                    <span style="color: red;" *ngIf="imageName.errors?.['required']">
+                       
+                    Image is required Field 
+                   </span> 
+                   <span style="color: #ff0000;" *ngIf="imageName.errors?.['pattern']">
+                    Image should have an extention of .jpg 
+                   </span>
+                </div>
+
+            </tr>
+            <input type="reset" value="Reset">
+            <button type="submit" class="btn btn-primary mb-2" [disabled]="hotelForm.form.invalid"  click="submitForm()"#hotel >Add now</button> 
+        </table>
+
+    </form>
+</div>
+

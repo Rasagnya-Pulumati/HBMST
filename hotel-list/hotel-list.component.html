@@ -1,0 +1,33 @@
+<p>hotel-list works!</p>
+<table class="table table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th> Hotel name</th>
+            <th> Address</th>
+            <th> description </th>
+            <th> avgRatePerDay</th>
+            <th> Email </th>
+            <th> Phone Number1 </th>
+            <th> Phone Number1</th>
+            <th> Website</th>
+            
+            
+            
+        </tr>
+    </thead>
+    <tr *ngFor="let hotel of allHotels">
+        <td> {{h.hotelName}} </td>
+        <td>{{h.city}}</td>
+            <td>{{h.address}}</td>
+                <td> {{h.description}}</td>
+                <td>{{h.avgRatePerDay}}</td>
+            <td>{{h.email}}</td>
+            <td>{{h.phone}}</td>
+            <td>avgRatePerDay}}</tr>
+            <td>{{h.starRating}}</td>
+            <td>{{h.website}}</td>
+            <td>{{h.imageName}}</td>
+        <td>
+    
+    
+</table>

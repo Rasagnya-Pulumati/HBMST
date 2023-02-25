@@ -1,0 +1,108 @@
+<input type="text" #city name="city" required><button (click)="getByCity(city.value)">Search Hotel</button>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div *ngFor="let hotel of allHotels">
+                    <table>
+                        <tr>
+                            <td><img src="/assets/images/{{hotel.imageName}}" alt="Hotel image" width="120px"
+                                    height="150px"> </td>
+                            <td>
+
+                                <h3 class="card-header" style="text-transform: capitalize;">{{hotel.hotelName}}</h3>
+                                <div class="card-body">
+                                    <h5 class="card-title" style="text-transform: capitalize;">City:{{hotel.city}}</h5>
+                                    Hotel Id:{{hotel.hotelId}}<br />
+                                    Address:{{hotel.address}}<br />
+                                    Description:{{hotel.description}}<br />
+                                    Avg Rate Per Day:{{hotel.avgRatePerDay}}<br />
+                                    Email:{{hotel.email}}<br />
+                                    Phone:{{hotel.phone}}<br />
+                                    Website:{{hotel.website}}<br />
+                                    <!-- Star Rating {{hotel.starRating}} -->
+                                </div>
+
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngFor="let hotel of allHotels">
+    <button value="{{hotel.hotelId}}" (click)="viewRooms(hotel.hotelId)" #hotel class="btn btn-primary" type="button"
+        data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false"
+        aria-controls="collapseExample">
+        Room Details
+    </button>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div *ngFor="let r of allRooms">
+                        <table>
+                            <tr>
+                                <td><img src="assets/images/{{r.imageName}}" alt="Room image" width="120px"
+                                        height="150px"> </td>
+                                <td>
+
+                                    <!-- <h3 class="card-header" style="text-transform: capitalize;">{{r.hotelName}}</h3> -->
+                                    <div class="card-body">
+                                        <h5 class="card-title" style="text-transform: capitalize;">Room No:{{r.roomNo}}
+                                        </h5>
+                                        Room Type:{{r.roomType}}<br />
+
+                                        Rate Per Day:{{r.ratePerDay}}<br />
+
+
+                                        <button routerLink="/bookingform"> Book Now</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button value="{{hotel.hotelId}}" (click)="goForReview(hotel.hotelId)" #hotel class="btn btn-primary" type="button"
+        data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false"
+        aria-controls="collapseExample">
+        View Review
+    </button>
+
+
+    <div class="card card-body" *ngIf="showReview==true ">
+        Average Review <b> {{a}} </b>
+        <!-- <div *ngFor={{a}}></div> -->
+        <!-- <ng-template [ngIf]="[{{a}}]=4"><div><img src="assets/images/Star-Rating.jpg" alt="Room image" width="120px"></div></ng-template> -->
+                <img src="assets/images/Star-Rating4.jpg" alt="Room image" width="120px">
+
+                <br />
+                <!-- <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card"> -->
+                                <div *ngFor="let x of allReviews">
+                                    <table><td style="width: 30%;">{{x.starRating}}</td>
+                                        <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                                    
+                            
+                                        <td style="width: 30%;">{{x.userReviewMsge}}</td>
+                
+                                        <td style="width: 40%;color:rgb(79, 79, 243);font-style: italic;font-weight: bold;"> Verified</td>
+                                    </table>
+                                </div>
+                            <!-- </div>
+                        </div>
+                    </div>
+                </div> -->
+        
+    </div>
+</div>

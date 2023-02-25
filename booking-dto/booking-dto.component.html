@@ -1,0 +1,10 @@
+<input type="text"   #bookingId >
+ <button (click)="getBookings(bookingId.value)">Load Details</button>
+
+<div *ngFor="let b of allBookings">
+    <div> Customer Name: {{b.name}} </div>
+    <div>Booking ID : {{b.bookingId}}</div>
+    <!-- <div>msg  :{{x.msg}}</div>
+    <div>starRating : {{x.starRating}}</div><br/> -->
+    <hr>
+</div>

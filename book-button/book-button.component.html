@@ -1,0 +1,127 @@
+
+<h3> Please Provide Your Details </h3>
+    
+    <form (ngSubmit)="onSubmit()" #bookingDetailsForm="ngForm">
+      <tr>
+      <div class="form-group">
+        <label for="name">Enter Customer Name</label>
+        <input type="text" class="form-control" id="name" name="name"
+               [(ngModel)]="model.name" placeholder="Enter Name " #name="ngModel"  pattern="[a-zA-Z]+" required>
+
+               <div *ngIf="name.invalid">
+                <span style="color: red;" *ngIf="name.errors?.['required']">
+
+                    Please Enter Name
+                </span>
+                <span style="color: red;" *ngIf="name.errors?.['pattern']">
+                  Name is not valid.
+                </span>
+
+            </div>
+        
+      </div>
+    </tr>
+    
+    <tr>
+      <div class="form-group">
+        <label for="bookedFrom">Check In Date</label>
+        <input type="date" class="form-control" id="bookedFrom" name="bookedFrom"
+        [(ngModel)]="model.bookedFrom" min="{{today}}" required>
+                  
+      </div>
+    </tr>
+    
+    <tr>
+        <div class="form-group">
+          <label for="bookedTo">Check Out Date</label>
+          <input type="date" class="form-control" id="bookedTo" name="bookedTo"
+          [(ngModel)]="model.bookedTo" min="{{today}}" required>
+                    
+        </div>
+      </tr>
+      
+
+      <tr>
+        <div class="form-group">
+          <label for="noOfAdults">No of Adults</label>
+          <input type="text" class="form-control" id="noOfAdults" name="noOfAdults"
+                 [(ngModel)]="model.noOfAdults" placeholder="Enter No.Of Adults"  #noOfAdults="ngModel" required pattern="[0-9]+">
+
+
+                
+            <div *ngIf="noOfAdults.invalid">
+                <span style="color: red;" *ngIf="noOfAdults.errors?.['required']">
+
+                    Please mention number of adults
+                </span>
+                <span style="color: red;" *ngIf="noOfAdults.errors?.['pattern']">
+                  noOfAdults is not valid.
+                </span>
+
+            </div>
+          
+        </div>
+      </tr>
+      
+      <tr>
+        <div class="form-group">
+          <label for="noOfChildren"> No.Of Children</label>
+          <input type="text" class="form-control" id="noOfChildren" name="noOfChildren"
+                 [(ngModel)]="model.noOfChildren" placeholder="Enter No.Of Children " #noOfChildren="ngModel" required pattern="[0-9]+">
+
+                 <div *ngIf="noOfChildren.invalid">
+                  <span style="color: red;" *ngIf="noOfChildren.errors?.['required']">
+  
+                      Please mention number of Children
+                  </span>
+                  <span style="color: red;" *ngIf="noOfChildren.errors?.['pattern']">
+                    noOfChildren is not valid.
+                  </span>
+  
+              </div>
+          
+        </div>
+      </tr>
+      
+
+    
+      <button type="submit" class="btn btn-primary" >Submit</button>
+      
+      
+
+      
+    </form>
+ 
+  
+    <div *ngIf="status == true" class="alert alert-success mt-3">Your details has been submitted successfully.</div>
+    <div *ngIf="status == false" class="alert alert-danger mt-3">An error occurred while providing.</div>
+   <button routerLink='/bookingreview'>Proceed to Pay</button>
+<!-- <div *ngFor="let b of allBookings">
+      <button value="{{b.bookingId}}" (click)="viewdetails(b.bookingId)" #bookingDetailsForm class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Review Details
+        </button>
+        <div class="container">
+          <div class="row">
+              <div class="col">
+                  <div class="card">
+                    <div *ngFor="let b of allreviews"></div>
+                      
+                                   <td><img src="assets/images/{{r.imageName}}" alt="Room image" width="120px" height="150px"> </td>
+                                  <td> -->
+                 
+                                      <!-- <h3 class="card-header" style="text-transform: capitalize;">{{r.hotelName}}</h3> -->
+                                      <!-- <div class="card-body">
+                                      <h5 class="card-title" style="text-transform: capitalize;">Customer Name: {{b.name}}</h5>
+                                      
+                                          Booking ID : {{b.bookingId}}<br/>
+                                       <button routerLink="/bookingform">Proceed To Pay</button>    -->
+                                      <!-- </div>
+                                  
+                           
+                      
+                  </div>
+              </div>
+          </div> 
+        </div>   
+</div> --> -->
+     -->

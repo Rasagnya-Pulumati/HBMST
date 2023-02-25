@@ -1,0 +1,33 @@
+
+<input type="text"#hotelId >
+<button (click)="getByHotelId(hotelId.value)">HotelId</button>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div *ngFor="let r of allRooms">
+                    <table>
+                        <tr>
+                            <td><img src="assets/images/{{r.imageName}}" alt="Room image" width="120px" height="150px"> </td>
+                            <td>
+           
+                                <!-- <h3 class="card-header" style="text-transform: capitalize;">{{r.hotelName}}</h3> -->
+                                <div class="card-body">
+                                <h5 class="card-title" style="text-transform: capitalize;">Room No:{{r.roomNo}}</h5>
+                                    Room Type:{{r.roomType}}<br/>
+                                    
+                                    Rate Per Day:{{r.ratePerDay}}<br/>
+                                    
+
+                                    <button routerLink="/bookingform"> Book Now</button>
+                                   
+
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>

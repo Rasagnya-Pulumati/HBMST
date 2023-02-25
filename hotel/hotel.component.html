@@ -1,0 +1,43 @@
+
+<!-- <button (click)="getAllHotels()">List of Hotels</button> -->
+
+
+<button (click)="getAllHotels()">List of Hotels</button>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div *ngFor="let hotel of allHotels">
+                    <table>
+                        <tr>
+                            <td><img src="/assets/images/{{hotel.imageName}}" alt="Hotel image" width="120px" height="150px"> </td>
+                            <td>
+           
+                                <h3 class="card-header" style="text-transform: capitalize;">{{hotel.hotelName}}</h3>
+                                <div class="card-body">
+                                <h5 class="card-title" style="text-transform: capitalize;">City:{{hotel.city}}</h5>
+                                    Hotel Id:{{hotel.hotelId}}<br/>
+                                    Address:{{hotel.address}}<br/>
+                                    Description:{{hotel.description}}<br/>
+                                    Avg Rate Per Day:{{hotel.avgRatePerDay}}<br/>
+                                    Email:{{hotel.email}}<br/>
+                                    Phone:{{hotel.phone}}<br/>
+                                    Website:{{hotel.website}}<br/>
+                                    {{hotel.starRating}}
+
+                                    <button>Reviews</button> 
+                                    <button routerLink="/view-room"> View Rooms </button> 
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+        
+                    
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+
+
